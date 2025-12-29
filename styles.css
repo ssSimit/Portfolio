@@ -10,14 +10,14 @@ html {
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #0f0f0f;
-  color: #f2f2f2;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0d0d0d;
+  color: #d4d4d4;
   line-height: 1.6;
 }
 
 a {
-  color: #6cb4ff;
+  color: #c9a961;
   text-decoration: none;
 }
 
@@ -33,19 +33,22 @@ a:hover {
 
 /* NAVBAR */
 .navbar {
-  background: #111;
-  border-bottom: 1px solid #222;
+  background: #0d0d0d;
+  border-bottom: 1px solid #2a2a2a;
 }
 
 .navbar .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 0;
+  padding: 1.2rem 0;
 }
 
 .logo {
   font-size: 1.2rem;
+  color: #d4d4d4;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
 .navbar nav {
@@ -56,6 +59,13 @@ a:hover {
 .navbar nav a {
   font-size: 0.95rem;
   white-space: nowrap;
+  transition: color 0.3s ease;
+  color: #999999;
+}
+
+.navbar nav a:hover {
+  color: #c9a961;
+  text-decoration: none;
 }
 
 /* HERO */
@@ -65,8 +75,10 @@ a:hover {
 }
 
 .hero h2 {
-  font-size: clamp(2rem, 4vw, 2.6rem);
+  font-size: clamp(2.8rem, 6vw, 3.8rem);
   margin-bottom: 1rem;
+  color: #ffffff;
+  font-weight: 700;
 }
 
 .hero p {
@@ -77,10 +89,10 @@ a:hover {
 /* HERO BACKGROUND */
 .hero-bg {
   position: relative;
-  background-image: url("assets/images/hero-bg.png");
+  background-image: url("assets/images/hero-bg1.png");
   background-size: cover;
   background-position: center;
-  min-height: 60vh;
+  min-height: 40vh;
   display: flex;
   align-items: center;
 }
@@ -90,8 +102,8 @@ a:hover {
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(15, 15, 15, 0.8),
-    rgba(15, 15, 15, 0.9)
+    rgba(13, 13, 13, 0.75),
+    rgba(13, 13, 13, 0.9)
   );
 }
 
@@ -118,7 +130,9 @@ a:hover {
 
 .projects h2 {
   margin-bottom: 2.5rem;
-  font-size: 1.8rem;
+  font-size: 2.4rem;
+  color: #ffffff;
+  font-weight: 700;
 }
 
 .project-card {
@@ -135,6 +149,8 @@ a:hover {
 .project-info h3 {
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
+  color: #ffffff;
+  font-weight: 600;
 }
 
 .project-info p {
@@ -145,7 +161,108 @@ a:hover {
   display: inline-block;
   margin-top: 1.2rem;
   font-size: 0.95rem;
+  padding: 0.8rem 1.6rem;
+  border: 2px solid #c9a961;
+  color: #c9a961;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  font-weight: 600;
 }
+
+.project-link:hover {
+  background-color: #c9a961;
+  color: #0d0d0d;
+  text-decoration: none;
+}
+
+/* PROJECT DETAIL PAGE */
+.project-detail {
+  padding: 4rem 0;
+}
+
+.project-intro {
+  max-width: 700px;
+  margin-bottom: 2rem;
+  color: #ccc;
+}
+
+.game-embed {
+  margin: 2.5rem 0;
+  border: 1px solid #222;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #000;
+}
+
+.game-embed iframe {
+  width: 100%;
+  height: 70vh;
+  border: none;
+}
+
+.desktop-note {
+  font-size: 0.85rem;
+  color: #aaa;
+  margin-bottom: 3rem;
+}
+
+.project-description h3 {
+  margin-top: 2.5rem;
+  margin-bottom: 0.8rem;
+  color: #c9a961;
+}
+
+.project-description ul {
+  margin-left: 1.2rem;
+}
+
+.project-description li {
+  margin-bottom: 0.4rem;
+}
+/* 2nd project */
+
+.project-media-preview {
+  margin: 2.5rem 0;
+  border: 1px solid #222;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #000;
+  max-width: 500px;
+  float: right;
+  margin-left: 2rem;
+}
+
+.project-media-preview video {
+  width: 100%;
+  display: block;
+  border-radius: 4px;
+}
+
+
+.project-links {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+
+.project-btn {
+  padding: 0.7rem 1.4rem;
+  border-radius: 6px;
+  background-color: #1a1a1a;
+  border: 1px solid #222;
+  color: #c9a961;
+  font-size: 0.95rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.project-btn:hover {
+  background-color: #222;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+}
+
 
 /* VIDEO */
 .project-media {
@@ -156,8 +273,9 @@ a:hover {
   width: 100%;
   max-height: 340px;
   object-fit: cover;
-  border-radius: 8px;
-  border: 1px solid #222;
+  border-radius: 4px;
+  border: 1px solid #2a2a2a;
+  box-shadow: 0 8px 24px rgba(201, 169, 97, 0.1);
 }
 
 /* EXPERIENCE & CONTACT */
@@ -169,32 +287,37 @@ a:hover {
 .experience h2,
 .contact h2 {
   margin-bottom: 1rem;
+  font-size: 2.4rem;
+  color: #ffffff;
+  font-weight: 700;
 }
 
 .experience-card {
   background-color: #1a1a1a;
   padding: 1.8rem 2rem;
   margin-bottom: 2rem;
-  border-radius: 8px;
-  border: 1px solid #222;
-  transition: transform 0.2s, box-shadow 0.2s;
+  border-radius: 4px;
+  border: 1px solid #2a2a2a;
+  transition: all 0.3s ease;
 }
 
 .experience-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 12px 32px rgba(201, 169, 97, 0.15);
+  border-color: #c9a961;
 }
 
 .experience-card h3 {
   font-size: 1.3rem;
   margin-bottom: 0.3rem;
-  color: #6cb4ff;
+  color: #c9a961;
+  font-weight: 600;
 }
 
 .experience-duration {
   display: block;
   font-size: 0.9rem;
-  color: #aaa;
+  color: #999999;
   margin-bottom: 0.8rem;
 }
 
@@ -212,7 +335,9 @@ a:hover {
 
 .skills h2 {
   margin-bottom: 2.5rem;
-  font-size: 1.8rem;
+  font-size: 2.4rem;
+  color: #ffffff;
+  font-weight: 700;
 }
 
 .skills-grid {
@@ -223,21 +348,23 @@ a:hover {
 
 .skill-card {
   background-color: #1a1a1a;
-  border: 1px solid #222;
-  border-radius: 8px;
+  border: 1px solid #2a2a2a;
+  border-radius: 4px;
   padding: 1.6rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .skill-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 12px 32px rgba(201, 169, 97, 0.15);
+  border-color: #c9a961;
 }
 
 .skill-card h3 {
   margin-bottom: 0.8rem;
   font-size: 1.1rem;
-  color: #6cb4ff;
+  color: #c9a961;
+  font-weight: 600;
 }
 
 .skill-card ul {
@@ -247,7 +374,7 @@ a:hover {
 .skill-card li {
   font-size: 0.95rem;
   margin-bottom: 0.4rem;
-  color: #ddd;
+  color: #c0c0c0;
 }
 
 /* CONTACT */
@@ -258,7 +385,7 @@ a:hover {
 
 .contact-text {
   margin-bottom: 2rem;
-  color: #ccc;
+  color: #b0b0b0;
 }
 
 .contact-buttons {
@@ -273,13 +400,13 @@ a:hover {
   align-items: center;
   gap: 0.6rem;
   padding: 0.75rem 1.4rem;
-  border-radius: 6px;
-  background-color: #1a1a1a;
-  border: 1px solid #222;
+  border-radius: 4px;
+  background-color: transparent;
+  border: 2px solid #c9a961;
   font-size: 0.95rem;
-  color: #f2f2f2;
-  transition: transform 0.2s ease, background-color 0.2s ease,
-    box-shadow 0.2s ease;
+  color: #c9a961;
+  transition: all 0.3s ease;
+  font-weight: 600;
 }
 
 .contact-btn i {
@@ -287,9 +414,11 @@ a:hover {
 }
 
 .contact-btn:hover {
-  background-color: #222;
+  background-color: #c9a961;
+  color: #0d0d0d;
   transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 20px rgba(201, 169, 97, 0.3);
+  text-decoration: none;
 }
 
 
@@ -298,7 +427,8 @@ a:hover {
   text-align: center;
   padding: 2rem 0;
   font-size: 0.85rem;
-  color: #aaa;
+  color: #666666;
+  border-top: 1px solid #2a2a2a;
 }
 
 /* =========================
@@ -349,6 +479,12 @@ a:hover {
   .project-media video {
     max-height: none;
   }
+
+  .project-media-preview {
+    float: none;
+    max-width: 100%;
+    margin-left: 0;
+  }
 }
 
 /* VERY SMALL PHONES */
@@ -357,3 +493,6 @@ a:hover {
     font-size: 15px;
   }
 }
+
+
+
