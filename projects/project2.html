@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Two</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="container">
+      <h1 class="logo">Simit Rai</h1>
+      <nav>
+        <a href="../index.html">← Back to Home</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- PROJECT DETAIL -->
+  <section class="project-detail">
+    <div class="container">
+
+      <h2>Shape Explorer</h2>
+
+      <p class="project-intro">
+       A fast-paced puzzle game where players shoot colored shapes to match and destroy chains of shapes moving along a circular path. The core idea was to combine classic chain-matching mechanics with strategic power-ups, creating an engaging and visually dynamic experience.
+      </p>
+
+      <!-- MEDIA PREVIEW -->
+      <div class="project-media-preview">
+        <video autoplay muted loop playsinline>
+          <source src="../assets/videos/project2.mp4" type="video/mp4" />
+        </video>
+      </div>
+
+      <!-- EXTERNAL LINKS -->
+      <div class="project-links">
+        <a
+          href="https://play.google.com/store/apps/details?id=com.ChimpVine.ShapesExplorer&amp;hl=en_US&amp;pli=1"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="project-btn"
+        >
+          View on Play Store
+        </a>
+
+        <a
+          href="https://site.chimpvine.com/games/shapes-explorer/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="project-btn"
+        >
+          View Game
+        </a>
+      </div>
+
+      <!-- LONG DESCRIPTION -->
+      <div class="project-description">
+
+        <h3>About the Project</h3>
+        <p>
+        Shape Explorer is a puzzle game developed for Chimpvine (Danson Solution Pvt. Ltd.), available on both the company website and the Google Play Store. The gameplay revolves around chains of moving shapes that advance toward the center of a circular arena. Players must shoot shapes of corresponding colors to match three or more, causing them to be destroyed and shortening the chain. Strategic elements include bombs, which, when triggered by nearby matches, destroy large portions of the chain for satisfying, high-impact gameplay.
+
+The goal of the project was to create a visually engaging, addictive puzzle experience that tests timing, strategy, and pattern recognition. Attention was given to smooth chain movement, responsive shooting mechanics, and satisfying visual and audio feedback to enhance player engagement. Multiplayer-friendly features and progression tracking were also considered to extend replayability.
+
+For the Google Play Store version, I implemented Google Play Games authentication and integrated Firebase to store and retrieve high scores, providing a connected and persistent experience for players.
+        </p>
+
+        <h3>Tools & Technologies</h3>
+        <ul>
+          <li>Unity (2D)</li>
+          <li>C# for gameplay and UI logic</li>
+          <li>Company design guidelines</li>
+          <li>Collaboration within a development team</li>
+        </ul>
+
+        <h3>What I Worked On</h3>
+        <ul>
+          <li>Designed and implemented core shooting and matching mechanics for dynamic chain behavior</li>
+          <li>Developed smooth chain movement around a circular path/li>
+          <li>Integrated Google Play Games authentication for the Android version</li>
+          <li>Implemented Firebase backend to store and manage player high scores</li>
+        </ul>
+
+        <h3>What I Learned</h3>
+        <ul>
+          <li>Developing real-time chain mechanics and handling dynamic object lists in Unity</li>
+          <li>Working with Google Play Games Services and Firebase integration/li>
+          <li>mplementing networked high score storage for player progression</li>
+          <li>Designing addictive, responsive puzzle interactions that maintain engagement</li>
+        </ul>
+
+      </div>
+
+    </div>
+  </section>
+
+</body>
+</html>
