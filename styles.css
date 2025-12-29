@@ -190,9 +190,10 @@ a:hover {
   margin: 2.5rem 0;
   border: 1px solid #222;
   border-radius: 8px;
-  overflow: hidden;
+  overflow: visible;
   background: #000;
   position: relative;
+  z-index: 1;
 }
 
 .game-embed iframe {
@@ -210,6 +211,7 @@ a:hover {
   text-align: center;
   padding: 1.5rem;
   background: rgba(13, 13, 13, 0.92);
+  z-index: 10;
 }
 
 .orientation-guard__content {
