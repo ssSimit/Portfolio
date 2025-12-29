@@ -31,27 +31,23 @@
 
       <!-- PLAYABLE GAME -->
       <div class="game-embed">
+        <div class="game-play-overlay" id="playOverlay">
+          <button id="playGameBtn" class="game-play-btn">
+            <!-- <span class="play-icon">▶</span> -->
+            <span>Run Game</span>
+          </button>
+        </div>
         <iframe
           id="gameIframe"
-          src="./project1-game/"
           title="Project One Playable Demo"
           loading="lazy"
           allowfullscreen
+          style="display: none;"
         ></iframe>
-        <div class="orientation-guard" aria-live="polite">
-          <div class="orientation-guard__content">
-            <p><strong>Rotate to landscape</strong> to play the demo.</p>
-            <p class="orientation-guard__hint">Landscape is required on mobile and tablet for correct controls.</p>
-          </div>
-        </div>
-      </div>
-      
-      <div style="display: flex; justify-content: flex-end; margin-top: 1rem;">
-        <button id="fullscreenBtn" style="padding: 0.7rem 1.4rem; background-color: #c9a961; color: #0d0d0d; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.95rem; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 14px rgba(0, 0, 0, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">Fullscreen</button>
       </div>
 
       <p class="desktop-note">
-        Playable WebGL demo.
+        Playable WebGL demo. Click "Run Game" to start—best experience in landscape or fullscreen mode.
       </p>
 
       <!-- LONG DESCRIPTION -->
@@ -100,43 +96,78 @@ Overall, the experience was designed to be calm, accessible, and creative, using
   </section>
 
   <script>
-    const fullscreenBtn = document.getElementById('fullscreenBtn');
+    const playGameBtn = document.getElementById('playGameBtn');
     const gameIframe = document.getElementById('gameIframe');
+    const playOverlay = document.getElementById('playOverlay');
+    const gameEmbedContainer = document.querySelector('.game-embed');
 
-    fullscreenBtn.addEventListener('click', () => {
-      if (gameIframe.requestFullscreen) {
-        gameIframe.requestFullscreen();
-      } else if (gameIframe.webkitRequestFullscreen) {
-        gameIframe.webkitRequestFullscreen();
-      } else if (gameIframe.mozRequestFullScreen) {
-        gameIframe.mozRequestFullScreen();
-      } else if (gameIframe.msRequestFullscreen) {
-        gameIframe.msRequestFullscreen();
+    playGameBtn.addEventListener('click', async () => {
+      // Load the iframe
+      gameIframe.src = './project1-game/';
+      gameIframe.style.display = 'block';
+      playOverlay.style.display = 'none';
+
+      // Try to request fullscreen
+      if (gameEmbedContainer.requestFullscreen) {
+        try {
+          await gameEmbedContainer.requestFullscreen();
+          // Request landscape orientation on mobile
+          if (screen.orientation && screen.orientation.lock) {
+            try {
+              await screen.orientation.lock('landscape');
+            } catch (err) {
+              console.log('Orientation lock not supported or failed');
+            }
+          }
+        } catch (err) {
+          console.log('Fullscreen request failed, but game will still play');
+        }
+      } else if (gameEmbedContainer.webkitRequestFullscreen) {
+        gameEmbedContainer.webkitRequestFullscreen();
+      } else if (gameEmbedContainer.mozRequestFullScreen) {
+        gameEmbedContainer.mozRequestFullScreen();
+      } else if (gameEmbedContainer.msRequestFullscreen) {
+        gameEmbedContainer.msRequestFullscreen();
+      }
+    });
+
+    // Handle fullscreen exit
+    document.addEventListener('fullscreenchange', () => {
+      if (!document.fullscreenElement) {
+        // Fullscreen exited - stop and reset the game
+        gameIframe.src = '';
+        gameIframe.style.display = 'none';
+        playOverlay.style.display = 'flex';
+      }
+    });
+
+    // Webkit browsers
+    document.addEventListener('webkitfullscreenchange', () => {
+      if (!document.webkitFullscreenElement) {
+        gameIframe.src = '';
+        gameIframe.style.display = 'none';
+        playOverlay.style.display = 'flex';
+      }
+    });
+
+    // Mozilla browsers
+    document.addEventListener('mozfullscreenchange', () => {
+      if (!document.mozFullScreenElement) {
+        gameIframe.src = '';
+        gameIframe.style.display = 'none';
+        playOverlay.style.display = 'flex';
+      }
+    });
+
+    // MS browsers
+    document.addEventListener('msfullscreenchange', () => {
+      if (!document.msFullscreenElement) {
+        gameIframe.src = '';
+        gameIframe.style.display = 'none';
+        playOverlay.style.display = 'flex';
       }
     });
   </script>
-
-  <script>
-  const orientationGuard = document.querySelector(".orientation-guard");
-  const gameIframeContainer = document.querySelector(".game-embed");
-
-  function checkOrientation() {
-    const isMobile = window.matchMedia("(max-width: 1024px)").matches;
-    const isPortrait = window.innerHeight > window.innerWidth;
-
-    if (isMobile && isPortrait) {
-      orientationGuard.style.display = "flex";
-      gameIframeContainer.style.pointerEvents = "none";
-    } else {
-      orientationGuard.style.display = "none";
-      gameIframeContainer.style.pointerEvents = "auto";
-    }
-  }
-
-  window.addEventListener("load", checkOrientation);
-  window.addEventListener("resize", checkOrientation);
-  window.addEventListener("orientationchange", checkOrientation);
-</script>
 
 
 </body>
