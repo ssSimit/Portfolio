@@ -234,17 +234,6 @@ a:hover {
   font-size: 0.9rem;
 }
 
-@media (orientation: portrait) and (max-width: 1024px) {
-  .game-embed iframe {
-    filter: blur(3px);
-    pointer-events: none;
-  }
-
-  .orientation-guard {
-    display: flex;
-  }
-}
-
 .desktop-note {
   font-size: 0.85rem;
   color: #aaa;

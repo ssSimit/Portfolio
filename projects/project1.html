@@ -51,7 +51,7 @@
       </div>
 
       <p class="desktop-note">
-        Playable WebGL demo. 
+        Playable WebGL demo.
       </p>
 
       <!-- LONG DESCRIPTION -->
@@ -115,6 +115,29 @@ Overall, the experience was designed to be calm, accessible, and creative, using
       }
     });
   </script>
+
+  <script>
+  const orientationGuard = document.querySelector(".orientation-guard");
+  const gameIframeContainer = document.querySelector(".game-embed");
+
+  function checkOrientation() {
+    const isMobile = window.matchMedia("(max-width: 1024px)").matches;
+    const isPortrait = window.innerHeight > window.innerWidth;
+
+    if (isMobile && isPortrait) {
+      orientationGuard.style.display = "flex";
+      gameIframeContainer.style.pointerEvents = "none";
+    } else {
+      orientationGuard.style.display = "none";
+      gameIframeContainer.style.pointerEvents = "auto";
+    }
+  }
+
+  window.addEventListener("load", checkOrientation);
+  window.addEventListener("resize", checkOrientation);
+  window.addEventListener("orientationchange", checkOrientation);
+</script>
+
 
 </body>
 </html>
