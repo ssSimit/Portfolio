@@ -32,10 +32,16 @@
       <!-- PLAYABLE GAME -->
       <div class="game-embed">
         <iframe
+          id="gameIframe"
           src="./project1-game/"
           title="Project One Playable Demo"
           loading="lazy"
+          allowfullscreen
         ></iframe>
+      </div>
+      
+      <div style="display: flex; justify-content: flex-end; margin-top: 1rem;">
+        <button id="fullscreenBtn" style="padding: 0.7rem 1.4rem; background-color: #c9a961; color: #0d0d0d; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.95rem; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 14px rgba(0, 0, 0, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">Fullscreen</button>
       </div>
 
       <p class="desktop-note">
@@ -86,6 +92,23 @@ Overall, the experience was designed to be calm, accessible, and creative, using
 
     </div>
   </section>
+
+  <script>
+    const fullscreenBtn = document.getElementById('fullscreenBtn');
+    const gameIframe = document.getElementById('gameIframe');
+
+    fullscreenBtn.addEventListener('click', () => {
+      if (gameIframe.requestFullscreen) {
+        gameIframe.requestFullscreen();
+      } else if (gameIframe.webkitRequestFullscreen) {
+        gameIframe.webkitRequestFullscreen();
+      } else if (gameIframe.mozRequestFullScreen) {
+        gameIframe.mozRequestFullScreen();
+      } else if (gameIframe.msRequestFullscreen) {
+        gameIframe.msRequestFullscreen();
+      }
+    });
+  </script>
 
 </body>
 </html>
