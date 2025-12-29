@@ -192,12 +192,55 @@ a:hover {
   border-radius: 8px;
   overflow: hidden;
   background: #000;
+  position: relative;
 }
 
 .game-embed iframe {
   width: 100%;
   height: 70vh;
   border: none;
+}
+
+.orientation-guard {
+  position: absolute;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(13, 13, 13, 0.92);
+}
+
+.orientation-guard__content {
+  max-width: 320px;
+  width: 100%;
+  background: rgba(26, 26, 26, 0.9);
+  border: 1px solid #2a2a2a;
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.orientation-guard p {
+  margin-bottom: 0.35rem;
+  color: #d4d4d4;
+}
+
+.orientation-guard__hint {
+  color: #b0b0b0;
+  font-size: 0.9rem;
+}
+
+@media (orientation: portrait) and (max-width: 1024px) {
+  .game-embed iframe {
+    filter: blur(3px);
+    pointer-events: none;
+  }
+
+  .orientation-guard {
+    display: flex;
+  }
 }
 
 .desktop-note {
