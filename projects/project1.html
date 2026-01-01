@@ -42,6 +42,7 @@
           title="Project One Playable Demo"
           loading="lazy"
           allowfullscreen
+          allow="fullscreen; orientation-lock"
           style="display: none;"
         ></iframe>
       </div>
@@ -101,6 +102,28 @@ Overall, the experience was designed to be calm, accessible, and creative, using
     const playOverlay = document.getElementById('playOverlay');
     const gameEmbedContainer = document.querySelector('.game-embed');
 
+    async function enterFullscreen() {
+      // Try container first
+      if (gameEmbedContainer.requestFullscreen) {
+        return gameEmbedContainer.requestFullscreen();
+      }
+      // Fallback to iframe if container not supported
+      if (gameIframe.requestFullscreen) {
+        return gameIframe.requestFullscreen();
+      }
+      // Vendor prefixes
+      if (gameEmbedContainer.webkitRequestFullscreen) {
+        return gameEmbedContainer.webkitRequestFullscreen();
+      }
+      if (gameEmbedContainer.mozRequestFullScreen) {
+        return gameEmbedContainer.mozRequestFullScreen();
+      }
+      if (gameEmbedContainer.msRequestFullscreen) {
+        return gameEmbedContainer.msRequestFullscreen();
+      }
+      throw new Error('Fullscreen API not supported');
+    }
+
     playGameBtn.addEventListener('click', async () => {
       // Load the iframe
       gameIframe.src = './project1-game/';
@@ -108,26 +131,17 @@ Overall, the experience was designed to be calm, accessible, and creative, using
       playOverlay.style.display = 'none';
 
       // Try to request fullscreen
-      if (gameEmbedContainer.requestFullscreen) {
-        try {
-          await gameEmbedContainer.requestFullscreen();
-          // Request landscape orientation on mobile
-          if (screen.orientation && screen.orientation.lock) {
-            try {
-              await screen.orientation.lock('landscape');
-            } catch (err) {
-              console.log('Orientation lock not supported or failed');
-            }
+      try {
+        await enterFullscreen();
+        if (screen.orientation && screen.orientation.lock) {
+          try {
+            await screen.orientation.lock('landscape');
+          } catch (err) {
+            console.log('Orientation lock not supported or failed');
           }
-        } catch (err) {
-          console.log('Fullscreen request failed, but game will still play');
         }
-      } else if (gameEmbedContainer.webkitRequestFullscreen) {
-        gameEmbedContainer.webkitRequestFullscreen();
-      } else if (gameEmbedContainer.mozRequestFullScreen) {
-        gameEmbedContainer.mozRequestFullScreen();
-      } else if (gameEmbedContainer.msRequestFullscreen) {
-        gameEmbedContainer.msRequestFullscreen();
+      } catch (err) {
+        console.log('Fullscreen request failed, continuing inline');
       }
     });
 
