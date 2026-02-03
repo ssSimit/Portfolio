@@ -4,20 +4,95 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity Web Player | ShapeTracing</title>
+    <title>Unity Web Player | Blackjack</title>
+
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: #000;
+        }
+
+        /* Loading screen */
+        #loading-cover {
+            position: fixed;
+            inset: 0;
+            background: #111;
+            /* fallback if image not used */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        #loading-container {
+            width: 320px;
+            text-align: center;
+            font-family: sans-serif;
+            color: white;
+        }
+
+
+        #progress-bar-bg {
+            width: 100%;
+            height: 16px;
+            background: #333;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        #progress-bar-fill {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #4caf50, #8bc34a);
+            transition: width 0.2s ease;
+        }
+
+        #progress-text {
+            margin-top: 10px;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        canvas {
+            display: block;
+        }
+    </style>
 </head>
 
-<body style="text-align: center; padding: 0; border: 0; margin: 0; overflow: hidden;">
-    <canvas id="unity-canvas" width=1280 height=720 tabindex="-1"
-        style="width: 100%; height: 100vh; background: #231F20"></canvas>
-    <script src="Build/WebglBuild.loader.js"></script>
+<body>
+
+    <!-- Loading Screen -->
+    <div id="loading-cover">
+        <div id="loading-container">
+
+
+            <div id="progress-bar-bg">
+                <div id="progress-bar-fill"></div>
+            </div>
+
+            <div id="progress-text">Loading 0%</div>
+        </div>
+    </div>
+
+    <!-- Unity Canvas -->
+    <canvas id="unity-canvas" width=960 height=540 tabindex="-1"
+        style="width: 100%; height: 100vh;
+        background: #231F20;">
+    </canvas>
+
+    <script src="Build/BlackjackWithFriendsBuild.loader.js"></script>
+
     <script>
         if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-            // Mobile device style: fill the whole browser client area with the game canvas:
             var meta = document.createElement('meta');
             meta.name = 'viewport';
             meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
-            document.getElementsByTagName('head')[0].appendChild(meta);
+            document.head.appendChild(meta);
 
             var canvas = document.querySelector("#unity-canvas");
             canvas.style.width = "100%";
@@ -27,19 +102,30 @@
             document.body.style.textAlign = "left";
         }
 
+        var loadingCover = document.getElementById("loading-cover");
+        var progressFill = document.getElementById("progress-bar-fill");
+        var progressText = document.getElementById("progress-text");
+
         createUnityInstance(document.querySelector("#unity-canvas"), {
             arguments: [],
-            dataUrl: "Build/WebglBuild.data.unityweb",
-            frameworkUrl: "Build/WebglBuild.framework.js.unityweb",
-        codeUrl: "Build/WebglBuild.wasm.unityweb",
-        streamingAssetsUrl: "StreamingAssets",
+            dataUrl: "Build/BlackjackWithFriendsBuild.data.unityweb",
+            frameworkUrl: "Build/BlackjackWithFriendsBuild.framework.js.unityweb",
+            codeUrl: "Build/BlackjackWithFriendsBuild.wasm.unityweb",
+            streamingAssetsUrl: "StreamingAssets",
             companyName: "DefaultCompany",
-            productName: "ShapeTracing",
+            productName: "Blackjack",
             productVersion: "1.0",
-        // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
-        // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
-      });
+        }, function (progress) {
+                var percent = Math.round(progress * 100);
+                progressFill.style.width = percent + "%";
+                progressText.textContent = "Loading " + percent + "%";
+            }).then(function () {
+                loadingCover.style.opacity = "0";
+                loadingCover.style.pointerEvents = "none";
+                setTimeout(() => loadingCover.style.display = "none", 500);
+            });
     </script>
+
 </body>
 
 </html>

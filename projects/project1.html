@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,7 +15,7 @@
     <div class="container">
       <h1 class="logo">Simit Rai</h1>
       <nav>
-        <a href="../index.html">← Back to Home</a>
+        <a href="../index.html#projects">← Back to Projects</a>
       </nav>
     </div>
   </header>
@@ -22,78 +23,77 @@
   <!-- PROJECT DETAIL -->
   <section class="project-detail">
     <div class="container">
+      <div class="project-detail-wrapper">
 
-      <h2>TraceCraft</h2>
+        <!-- Main Content -->
+        <div class="project-main">
+          <h2>Blackjack With Friends</h2>
 
-      <p class="project-intro">
-        An educational Unity game designed to help players learn and explore geometry through interactive tracing and painting of 2D and 3D forms. The core idea was to make abstract mathematical concepts more engaging by turning them into hands-on, visual interactions.
-      </p>
+          <p class="project-intro">
+            Blackjack With Friends is a casual blackjack game that supports both single-player and local multiplayer
+            gameplay on the same device, allowing up to three players to play together in one session.
+          </p>
 
-      <!-- PLAYABLE GAME -->
-      <div class="game-embed">
-        <div class="game-play-overlay" id="playOverlay">
-          <button id="playGameBtn" class="game-play-btn">
-            <!-- <span class="play-icon">▶</span> -->
-            <span>Run Game</span>
-          </button>
+          <!-- PLAYABLE GAME -->
+          <div class="game-embed">
+            <div class="game-play-overlay" id="playOverlay">
+              <button id="playGameBtn" class="game-play-btn">
+                <!-- <span class="play-icon">▶</span> -->
+                <span>Run Game</span>
+              </button>
+            </div>
+            <iframe id="gameIframe" title="Project One Playable Demo" loading="lazy" allowfullscreen
+              allow="fullscreen; orientation-lock" style="display: none;"></iframe>
+          </div>
+
+          <p class="desktop-note">
+            Playable WebGL demo. Click "Run Game" to start—best experience in landscape or fullscreen mode.
+          </p>
+
+          <!-- LONG DESCRIPTION -->
+          <div class="project-description">
+
+            <h3>About the Project</h3>
+            <p>
+              The game follows standard blackjack rules, including card values, bust conditions, and dealer behavior,
+              while maintaining a clean and intuitive interface so players can focus on strategy rather than complexity.
+              The local multiplayer system handles multiple hands, turn-based input, and score tracking within a single
+              match, ensuring smooth gameplay even with multiple players.
+
+              This project was built with a focus on clarity, rule accuracy, and scalable logic, making it easy to
+              extend with new features such as betting systems, animations, or additional game modes in the future.
+            </p>
+
+            <h3>Tools & Technologies</h3>
+            <ul>
+              <li>Unity</li>
+              <li>C# for gameplay logic</li>
+              <li>Krita / Figma for art</li>
+              <li>Custom WebGL template</li>
+            </ul>
+
+            <h3>What I Worked On</h3>
+            <ul>
+              <li>Applied object-oriented programming principles to model game systems such as cards, decks, players,
+                and the dealer</li>
+              <li>Built a turn-based system to support up to three local players on the same device</li>
+              <li>Implemented single-player and multiplayer game modes within the same codebase</li>
+              <li>Managed deck generation, shuffling, and card distribution logic</li>
+              <li>UI and UX flow</li>
+
+
+            </ul>
+
+            <h3>What I Learned</h3>
+            <ul>
+              <li>Structuring game states for multi-hand card games</li>
+              <li>Writing scalable and reusable game logic for rule-based systems</li>
+              <li>Improving code organization for readability and future maintenance</li>
+            </ul>
+
+          </div>
+
         </div>
-        <iframe
-          id="gameIframe"
-          title="Project One Playable Demo"
-          loading="lazy"
-          allowfullscreen
-          allow="fullscreen; orientation-lock"
-          style="display: none;"
-        ></iframe>
-      </div>
-
-      <p class="desktop-note">
-        Playable WebGL demo. Click "Run Game" to start—best experience in landscape or fullscreen mode.
-      </p>
-
-      <!-- LONG DESCRIPTION -->
-      <div class="project-description">
-
-        <h3>About the Project</h3>
-        <p>
-          This project was created as an educational game focused on helping players better understand geometric forms through active participation rather than passive instruction. The primary goal was to design an experience where learning happens through interaction, by tracing, rotating, and painting objects instead of simply viewing them.
-
-For 2D forms, players trace dotted outlines using a pencil-like mechanic implemented with Unity’s Line Renderer. The same system is extended for painting, allowing players to fill shapes through guided strokes. This approach reinforces shape recognition, hand–eye coordination, and spatial awareness in a way that feels playful and intuitive.
-
-For 3D forms, the game introduces rotatable models such as cubes and cylinders. Players can freely rotate these objects and paint them by shooting color onto different faces. Each face can be colored independently, encouraging exploration of three-dimensional structure and helping players understand how 3D objects are composed of multiple surfaces.
-
-Overall, the experience was designed to be calm, accessible, and creative, using soft visuals and simple interactions to keep the focus on learning. The project emphasizes clarity, feedback, and experimentation, making it suitable for younger learners while remaining technically robust.
-        </p>
-
-        <h3>Tools & Technologies</h3>
-        <ul>
-          <li>Unity (2D / 3D)</li>
-          <li>C# for gameplay logic</li>
-          <li>Krita / Figma for art</li>
-          <li>Custom WebGL template</li>
-        </ul>
-
-        <h3>What I Worked On</h3>
-        <ul>
-          <li>Designed and implemented 2D tracing and painting mechanics using Line Renderer</li>
-          <li>Built interactive 3D shape painting, including rotation and submesh-based color application</li>
-          <li>Focused on clean input handling and responsive visual feedback</li>
-         <li>Structured the project to be easily expandable with new shapes and mechanics </li>
-          <li>UI and UX flow</li>
-
-       
-        </ul>
-
-        <h3>What I Learned</h3>
-        <ul>
-          <li>Using Unity’s Line Renderer effectively for tracing and drawing interactions</li>
-          <li>Designing systems that work consistently across 2D and 3D gameplay contexts</li>
-       <li>Translating abstract concepts (geometry) into intuitive, interactive gameplay</li>
-        </ul>
-
-      </div>
-
-    </div>
   </section>
 
   <script>
@@ -185,4 +185,5 @@ Overall, the experience was designed to be calm, accessible, and creative, using
 
 
 </body>
+
 </html>
