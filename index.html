@@ -2,365 +2,166 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Simit Rai| Game Developer Portfolio</title>
-  <meta name="description"
-    content="Portfolio of Simit Rai, a game developer specializing in Unity, game networking, and multimedia projects.">
-  <meta name="keywords"
-    content="Simit Rai, portfolio, game developer, Unity, game development, Lincoln University, Nepal">
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simit Rai | Portfolio | Game Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-  <!-- NAVBAR -->
-  <header class="navbar">
-    <div class="container">
-      <div class="brand-block">
-        <h1 class="logo">Simit Rai</h1>
-        <p class="brand-subtitle">Game Developer</p>
+  <nav class="navbar">
+    <a href="#home" class="logo">SIMIT<span class="cursor">_</span></a>
+    <ul class="nav-links">
+      <li><a href="#home">./home</a></li>
+      <li><a href="#projects">./projects</a></li>
+      <li><a href="#experience">./experience</a></li>
+      <!-- <li><a href="#skills">./skills</a></li> -->
+      <li><a href="#contact">./contact</a></li>
+    </ul>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <header class="hero" id="home">
+    <div class="hero-inner">
+      <p class="terminal-line">$ whoami</p>
+      <h1 class="hero-name">SIMIT RAI<span class="cursor">_</span></h1>
+      <h2 class="hero-title">// GAME DEVELOPER</h2>
+      <p class="hero-desc">
+        I make games of diverse genre for mobile and web, ranging from educational and casual games to casino-style
+        and racing experiences, with focus on clean and scalable systems.
+      </p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">VIEW WORK →</a>
+        <a href="#contact" class="btn btn-outline">GET IN TOUCH</a>
       </div>
-      <nav>
-        <a href="#projects">Projects</a>
-        <a href="#experience">Experience</a>
-        <a href="#contact">Connect</a>
-      </nav>
+    </div>
+    <div class="hero-meta">
+      <span>[ STATUS: AVAILABLE ]</span>
+      <span>[ BASED_IN: NEPAL ]</span>
+      <span>[ ROLE: GAME_DEV ]</span>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section id="home" class="hero hero-bg">
-    <div class="hero-overlay"></div>
+  <!-- ============ PROJECTS ============ -->
+  <section class="section" id="projects">
+    <h2 class="section-title">// 01 — FEATURED PROJECTS</h2>
+    <div class="project-grid" id="projectGrid">
+      <!-- injected by main.js -->
+    </div>
+  </section>
+  <!-- ============ EXPERIENCE ============ -->
+  <section class="section" id="experience">
+    <h2 class="section-title">// 02 — EXPERIENCE</h2>
+    <div class="timeline">
+      <div class="timeline-entry">
+        <span class="t-date">[Dec 2024 - Dec 2025]</span>
+        <div>
+          <h4>Unity Game Developer — ChimpVine (Danson Solutions Pvt. Ltd.)</h4>
+          <ul class="exp-list">
+            <li>Developed multiple 2D/3D educational games for grade preK-8 students.</li>
+            <li>Collaborated with designers and QA to deliver polished gameplay experiences.</li>
+            <li>Built educational features integrated into core gameplay loops.</li>
+          </ul>
+        </div>
+      </div>
 
-    <div class="container hero-content">
-      <p>
-        I make games of diverse genre for mobile and web, ranging from educational and casual
-        games to
-        casino-style and racing experiences, with focus on clean mechanics and maintainable
-        systems.
-      </p>
+      <div class="timeline-entry">
+        <span class="t-date">[Jan 2024 - Present]</span>
+        <div>
+          <h4>Indie Game Development Journey</h4>
+          <ul class="exp-list">
+            <li>Launched multiple mobile and web games, with 130K+ game-plays on Y8.</li>
+            <li>Designed, developed, and published games independently.</li>
+            <li>Gained hands-on experience across the full gameplay development pipeline.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SKILLS ============ -->
+  <section class="section" id="skills">
+    <h2 class="section-title">// 03 — SKILLS</h2>
+    <div class="skills-grid">
+      <div class="skills-col">
+        <h3 class="col-heading">$ ls ./skills</h3>
+        <ul class="tag-list">
+          <li>[ UNITY ]</li>
+          <li>[ C#, OOP, SOLID, Design Patterns ]</li>
+          <li>[ WebGL/Mobile Build & Deployment ]</li>
+          <li>[ Google Play Console ]</li>
+          <li>[ GIT, GitHub ]</li>
+          <li>[ Unity Ads, Y8 Ads ]</li>
+          <li>[ FIREBASE (Auth, Firestore) ]</li>
+          <li>[ REST API, JSON ]</li>
+          <li>[ FIGMA, UI/UX ]</li>
+          <li>[ Performance Optimization ]</li>
+          <li>[ Scratch ]</li>
+        </ul>
+      </div>
+
+      <div class="skills-col">
+        <h3 class="col-heading">$ ls ./currently_learning</h3>
+        <ul class="tag-list">
+          <li>[ MULTIPLAYER_NETWORKING ]</li>
+          <li>[ FLUTTER ]</li>
+          <li>[ AR_FOUNDATION ]</li>
+        </ul>
+      </div>
     </div>
   </section>
 
 
-  <!-- PROJECTS -->
-  <section id="projects" class="projects">
-    <div class="container">
-      <h2>Projects</h2>
+  <!-- ============ CERTIFICATIONS & AWARDS ============ -->
+  <section class="section" id="certifications">
+    <h2 class="section-title">// 04 — CERTIFICATIONS &amp; AWARDS</h2>
+    <div class="cert-grid">
+      <div class="cert-card">
+        <span class="cert-tag">[ AWARD ]</span>
+        <h3 class="cert-title">HackFusion 2026 — Winner</h3>
+        <p class="cert-issuer">Inter-College Innovation Hackathon</p>
+        <p class="cert-desc">Won first place for NavRoom AR, an AR indoor navigation app built in a 3-person team.</p>
+        <a href="project.html?id=navroom-ar" class="cert-link">VIEW PROJECT →</a>
 
-      <!-- PROJECT 0: EXTREME WHEELS -->
-      <div class="project-card">
-        <div class="project-media">
-          <video autoplay muted loop playsinline>
-            <source src="assets/videos/project6.mp4" type="video/mp4" />
-          </video>
-          <div class="project-overlay">
-            <span class="badge badge-primary">3D Racing</span>
-            <span class="badge badge-secondary">Multiplayer</span>
-          </div>
-        </div>
-
-        <div class="project-info">
-          <h3>Extreme Wheels</h3>
-          <p>
-            Extreme Wheels is a 3D racing game that delivers thrilling high-speed gameplay. Race against challenging CPU
-            opponents or compete with friends in local multiplayer split-screen mode.
-          </p>
-          <div class="project-meta">
-            <span>🎮 Racing</span>
-            <span>3D</span>
-          </div>
-          <button class="project-link coming-soon" disabled>
-            Coming Soon
-          </button>
-        </div>
       </div>
-
-      <!-- PROJECT 1 -->
-      <div class="project-card">
-        <div class="project-media">
-          <video autoplay muted loop playsinline>
-            <source src="assets/videos/project4.mp4" type="video/mp4" />
-          </video>
-          <div class="project-overlay">
-            <span class="badge badge-primary">Card Game</span>
-            <span class="badge badge-secondary">Multiplayer</span>
-          </div>
-        </div>
-
-        <div class="project-info">
-          <h3>Blackjack</h3>
-          <p>
-            Blackjack With Friends is a local multiplayer card game that allows players to enjoy classic blackjack with
-            friends.
-          </p>
-          <div class="project-meta">
-            <span>🎮 Playable</span>
-            <span>WebGL</span>
-          </div>
-          <a href="projects/project1.html" class="project-link">
-            Play Demo →
-          </a>
-        </div>
-      </div>
-
-      <!-- PROJECT 2 -->
-      <div class="project-card">
-        <div class="project-media">
-          <video autoplay muted loop playsinline>
-            <source src="assets/videos/project2.mp4" type="video/mp4" />
-          </video>
-          <div class="project-overlay">
-            <span class="badge badge-primary">Puzzle</span>
-            <span class="badge badge-accent">Educational</span>
-          </div>
-        </div>
-
-        <div class="project-info">
-          <h3>Shape Explorer</h3>
-          <p>
-            Shape Explorer is a shooting puzzle game that is available on the Playstore and ChimpVine's website.
-          </p>
-          <div class="project-meta">
-            <span>📖 Learn More</span>
-            <span>PlayStore</span>
-          </div>
-          <a href="projects/project2.html" class="project-link">
-            View Details →
-          </a>
-        </div>
-      </div>
-
-      <!-- PROJECT 3 -->
-      <!-- //banana barrage
-        <div class="project-card">
-        <div class="project-media">
-          <video autoplay muted loop playsinline>
-            <source src="assets/videos/project3.mp4" type="video/mp4" />
-          </video>
-          <div class="project-overlay">
-            <span class="badge badge-primary">Educational</span>
-            <span class="badge badge-secondary">Math</span>
-          </div>
-        </div>
-
-        <div class="project-info">
-          <h3>Banana Barrage</h3>
-          <p>
-            Banana Barrage is a game which teaches place value concepts through fun aim and shoot mechanics with
-            competition with cpu player.
-          </p>
-          <div class="project-meta">
-            <span>📖 Learn More</span>
-            <span>PlayStore</span>
-          </div>
-          <a href="projects/project3.html" class="project-link">
-            View Details →
-          </a>
-        </div>
-      </div> -->
-
-      <div class="project-card">
-        <div class="project-media">
-          <video autoplay muted loop playsinline>
-            <source src="assets/videos/project5.mp4" type="video/mp4" />
-          </video>
-          <div class="project-overlay">
-            <span class="badge badge-primary">Physics</span>
-            <span class="badge badge-secondary">Racing</span>
-          </div>
-        </div>
-
-        <div class="project-info">
-          <h3>Cliffside Racing</h3>
-          <p>
-            Cliffside Racing is a physics-based racing game that offers an exciting driving experience with realistic
-            car handling and challenging tracks.
-          </p>
-          <div class="project-meta">
-            <span>📖 Learn More</span>
-            <span>Play on Y8</span>
-          </div>
-          <a href="projects/project5.html" class="project-link">
-            View Details →
-          </a>
-        </div>
+      <div class="cert-card">
+        <span class="cert-tag">[ CERTIFICATE ]</span>
+        <h3 class="cert-title">UI/UX Design</h3>
+        <p class="cert-issuer">Broadway Infosys</p>
+        <p class="cert-desc">Certificate of completion for a professional 36 hours UI/UX design course.</p>
+        <a href="https://broadwayinfosys.com/certificate-verification-code/eyJpdiI6InZ1a3d3V01iYUdXOTFWVkVzSmIyVVE9PSIsInZhbHVlIjoiZTJRWHhMdkNrRlRISjlMbytBWWNodz09IiwibWFjIjoiMmVjZTVmMzAwMmZiZDJlOTI2ODI4YTU5NzVjMmMzMTYxYjgwYTkxN2IxOWY1MjViN2M4Yzk2YmVkZGUzMmJlOSIsInRhZyI6IiJ9"
+          class="cert-link">VIEW CERTIFICATE →</a>
       </div>
 
     </div>
   </section>
 
-  <!-- CREATOR: About + Experience + Skills -->
-  <section id="experience" class="creator">
-    <div class="container">
-      <h2>Experience</h2>
-
-      <!-- EXPERIENCE -->
-      <div class="experience-section">
-        <!-- Professional Experience -->
-        <div class="experience-card">
-          <h3>Game Developer – Chimpvine (Danson Solutions Pvt. Ltd.)</h3>
-          <span class="experience-duration">Dec 2024 – Dec 2025</span>
-          <p>
-            Developed multiple 2D and 3D educational games as part of a collaborative team.
-            Contributed to game mechanics, UI/UX design, and performance optimization,
-            delivering high-quality educational experiences.
-          </p>
-        </div>
-
-        <!-- Indie Game Development -->
-        <div class="experience-card">
-          <h3>Indie Game Developer – ZeusBro Studio</h3>
-          <span class="experience-duration">2023 - Ongoing</span>
-
-          <p>
-            Created and published multiple games on Play Store and Y8. The Y8 games
-            have accumulated over 80,000+ combined gameplay sessions.
-          </p>
-
-          <div class="experience-links">
-            <a href="https://play.google.com/store/apps/dev?id=6760959971593867340" target="_blank"
-              rel="noopener noreferrer">
-              Play Store Developer Profile →
-            </a>
-
-            <a href="https://www.y8.com/studios/zeusbro-studio" target="_blank" rel="noopener noreferrer">
-              Y8 Studio Page →
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!--Skills-->
-      <div class="skills-section">
-        <h3>Skills & Tools</h3>
-
-        <div class="skills-grid">
-
-          <div class="skill-card">
-            <h3>Game Development</h3>
-            <ul>
-              <li>Unity (2D & 3D)</li>
-              <li>Godot</li>
-              <li>Design Patterns, Gameplay Mechanics, Scalable Systems</li>
-              <li>Git, GitHub (Version Control)</li>
-            </ul>
-          </div>
-
-          <div class="skill-card">
-            <h3>Programming Languages</h3>
-            <ul>
-              <li>C# (Primary)</li>
-              <li>GDScript</li>
-              <li>Java</li>
-              <li>JavaScript</li>
-            </ul>
-          </div>
-
-          <div class="skill-card">
-            <h3>Design & UI/UX</h3>
-            <ul>
-              <li>UI/UX Design (Games & Applications)</li>
-              <li>User Flows & Wireframing</li>
-              <li>Figma</li>
-            </ul>
-
-          </div>
-
-          <div class="skill-card">
-            <h3>Art & Creative Tools</h3>
-            <ul>
-              <li>Krita</li>
-              <li>Aseprite</li>
-              <li>GIMP</li>
-            </ul>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-
-
-  <!-- CONTACT -->
-  <section id="contact" class="contact">
-    <div class="container">
-      <h2>Contact & Profiles</h2>
-      <p class="contact-text">
-        Feel free to reach out for opportunities, collaborations, or questions.
-      </p>
-
-      <div class="contact-buttons">
-        <a href="mailto:simitchamling@gmail.com" class="contact-btn" aria-label="Email">
-          <i class="fa-solid fa-envelope"></i>
-        </a>
-
-        <a href="https://www.linkedin.com/in/simit-rai/" target="_blank" rel="noopener noreferrer" class="contact-btn"
-          aria-label="LinkedIn">
-          <i class="fa-brands fa-linkedin"></i>
-        </a>
-
-        <a href="https://github.com/ssSimit" target="_blank" rel="noopener noreferrer" class="contact-btn"
-          aria-label="Github">
-          <i class="fa-brands fa-github"></i>
-        </a>
-
-        <a href="https://x.com/sssimit_" target="_blank" rel="noopener noreferrer" class="contact-btn"
-          aria-label="X (Twitter)">
-          <i class="fa-brands fa-x-twitter"></i>
-        </a>
-
-        <a href="https://www.instagram.com/zeusbrostudio/" target="_blank" rel="noopener noreferrer" class="contact-btn"
-          aria-label="Instagram">
-          <i class="fa-brands fa-instagram"></i>
-        </a>
-
+  <!-- ============ CONTACT ============ -->
+  <section class="section" id="contact">
+    <h2 class="section-title">// 05 — CONTACT</h2>
+    <div class="contact-wrap">
+      <p class="terminal-line">$ ./contact --send</p>
+      <p class="contact-lead">Got an idea? Let's build it together.</p>
+      <div class="contact-links">
+        <a href="mailto:simitchamling@gmail.com" class="contact-link">[ EMAIL ]</a>
+        <a href="https://github.com/ssSimit" class="contact-link" target="_blank" rel="noopener">[ GITHUB ]</a>
+        <a href="https://www.linkedin.com/in/simit-rai/" class="contact-link" target="_blank" rel="noopener">[ LINKEDIN
+          ]</a>
       </div>
     </div>
   </section>
-
 
   <footer class="footer">
-    <p>© 2025 Simit Rai</p>
+    <p>© 2026 Simit Rai</p>
   </footer>
 
-  <script>
-    // Navbar scroll effect
-    const navbar = document.querySelector('.navbar');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 20) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-    });
-
-    // Smooth scroll offset for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        const href = this.getAttribute('href');
-        if (href !== '#') {
-          e.preventDefault();
-          const target = document.querySelector(href);
-          if (target) {
-            const headerOffset = 80;
-            const elementPosition = target.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-            window.scrollTo({
-              top: offsetPosition,
-              behavior: 'smooth'
-            });
-          }
-        }
-      });
-    });
-  </script>
-
+  <script src="data.js"></script>
+  <script src="main.js"></script>
 </body>
 
 </html>
